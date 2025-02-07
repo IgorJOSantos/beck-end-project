@@ -12,7 +12,7 @@ public class Hello {
 
     @GetMapping("/")
     public String Hello() {
-        return "Olá mundo, hoje é: " + new Date();
+        return "TESTE Olá mundo, hoje é: " + new Date();
     }
 
 }

@@ -1,6 +1,6 @@
 package com.dev.backend.service;
 
-import com.dev.backend.entity.Estado;
+import com.dev.backend.entity.Regiao;
 import com.dev.backend.repository.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,24 +14,22 @@ public class EstadoService {
     @Autowired
     private EstadoRepository estadoRepository;
 
-    public List<Estado> listar() {
+    public List<Regiao> listar() {
         return estadoRepository.findAll();
     }
 
-    public Estado inserir(Estado estado) {
-        estado.setDataCriacao(new Date());
-        Estado novoEstado = estadoRepository.saveAndFlush(estado); //SaveAndFlush salva e já envia para o banco
-        return novoEstado;
+    public Regiao inserir(Regiao regiao) {
+        Regiao novoRegiao = estadoRepository.saveAndFlush(regiao); //SaveAndFlush salva e já envia para o banco
+        return novoRegiao;
     }
 
-    public Estado alterar(Estado estado){
-        estado.setDataAtualizacao(new Date());
-        return estadoRepository.saveAndFlush(estado);
+    public Regiao alterar(Regiao regiao){
+        return estadoRepository.saveAndFlush(regiao);
     }
 
     public void excluir(Long id){
-        Estado estado = estadoRepository.findById(id).get();
-        estadoRepository.delete(estado);
+        Regiao regiao = estadoRepository.findById(id).get();
+        estadoRepository.delete(regiao);
 
     }
 }

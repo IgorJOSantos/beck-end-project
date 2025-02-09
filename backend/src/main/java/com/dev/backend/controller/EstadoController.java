@@ -1,13 +1,11 @@
 package com.dev.backend.controller;
 
-import com.dev.backend.entity.Estado;
+import com.dev.backend.entity.Regiao;
 import com.dev.backend.service.EstadoService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -18,18 +16,18 @@ public class EstadoController {
     private EstadoService estadoService;
 
     @GetMapping("/listar")
-    public List<Estado> buscarTodos(){
+    public List<Regiao> buscarTodos(){
         return estadoService.listar();
     }
 
     @PostMapping("/inserir")
-    public Estado inserir(@RequestBody Estado estado) {
-        return estadoService.inserir(estado);
+    public Regiao inserir(@RequestBody Regiao regiao) {
+        return estadoService.inserir(regiao);
     }
 
     @PutMapping("/alterar{id}")
-    public Estado alterar(@RequestBody Estado estado) {
-        return estadoService.alterar(estado);
+    public Regiao alterar(@RequestBody Regiao regiao) {
+        return estadoService.alterar(regiao);
     }
 
     @DeleteMapping("/{id}")
